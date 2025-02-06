@@ -4,29 +4,101 @@
   <meta charset="UTF-8">
   <style>
     body {
-      width: 300px;
-      padding: 10px;
-      font-family: Arial, sans-serif;
+      width: 320px;
+      padding: 20px;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: #f8f9fa;
+      margin: 0;
     }
+
+    h3 {
+      color: #1a73e8;
+      font-size: 18px;
+      margin: 0 0 20px 0;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #1a73e8;
+    }
+
+    .options-container {
+      background: white;
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
     .option {
-      margin: 10px 0;
+      margin: 12px 0;
       display: flex;
       align-items: center;
+      transition: all 0.2s ease;
+      padding: 8px 12px;
+      border-radius: 8px;
     }
+
+    .option:hover {
+      background: #f1f3f4;
+    }
+
     .option label {
-      margin-left: 8px;
+      margin-left: 12px;
       user-select: none;
       cursor: pointer;
+      color: #3c4043;
+      font-size: 14px;
+      flex: 1;
     }
-    .option input[type="checkbox"] {
-      width: 16px;
-      height: 16px;
-      cursor: pointer;
-    }
+
     .separator {
       height: 1px;
-      background: #ddd;
-      margin: 15px 0;
+      background: #e8eaed;
+      margin: 12px -16px;
+    }
+
+    /* Style personnalisé pour les checkboxes */
+    .option input[type="checkbox"] {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border: 2px solid #1a73e8;
+      border-radius: 4px;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.2s ease;
+    }
+
+    .option input[type="checkbox"]:checked {
+      background-color: #1a73e8;
+      border-color: #1a73e8;
+    }
+
+    .option input[type="checkbox"]:checked::after {
+      content: '';
+      position: absolute;
+      left: 6px;
+      top: 2px;
+      width: 5px;
+      height: 10px;
+      border: solid white;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+    }
+
+    /* Animation au survol */
+    .option input[type="checkbox"]:hover {
+      border-color: #174ea6;
+    }
+
+    .option input[type="checkbox"]:checked:hover {
+      background-color: #174ea6;
+    }
+
+    /* Footer avec version */
+    .footer {
+      text-align: center;
+      margin-top: 16px;
+      font-size: 12px;
+      color: #5f6368;
     }
   </style>
 </head>

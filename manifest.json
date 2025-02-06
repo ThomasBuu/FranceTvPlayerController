@@ -7,6 +7,12 @@
     "action": {
       "default_popup": "popup.html"
     },
+    "icons": {
+        "16": "etoiles.png",
+        "32": "etoiles.png",
+        "48": "etoiles.png",
+        "128": "etoiles.png"
+      },
     "content_scripts": [
       {
         "matches": ["<all_urls>"],

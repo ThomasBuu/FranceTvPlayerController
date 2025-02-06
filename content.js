@@ -2,21 +2,23 @@ let styleElement;
 
 function createStyle(options) {
   const css = `
-    /* Masquer complètement les boutons rewind/forward */
-    .ftv-magneto--btn[name="btn-rewind"],
-    .ftv-magneto--btn[name="btn-forward"],
-    div[name="btn-rewind"],
-    div[name="btn-forward"] {
-      display: ${options.showButtons ? 'flex' : 'none'} !important;
+    /* Contrôle du volume - indépendant */
+    [name="btn-volume"],
+    div[role="dialog"][aria-label*="volume"],
+    [name="slider-volume"] {
+      display: ${options.showVolumeControl ? 'flex' : 'none'} !important;
     }
     
-    /* Masquer aussi leurs conteneurs parents */
-    div[role="button"][name="btn-rewind"],
-    div[role="button"][name="btn-forward"],
-    div[style*="position: relative"][style*="width: 36px"][style*="height: 36px"] {
+    /* Masquer les conteneurs des boutons forward/rewind */
+    div[style*="position: relative"][style*="width: 36px"][style*="height: 36px"]:has([name="btn-forward"]),
+    div[style*="position: relative"][style*="width: 36px"][style*="height: 36px"]:has([name="btn-rewind"]) {
       display: ${options.showButtons ? 'flex' : 'none'} !important;
     }
-    
+
+    /* Masquer les boutons (sauf volume) */
+    .ftv-magneto--btn:not([name="btn-volume"]) {
+      display: ${options.showButtons ? 'flex' : 'none'} !important;
+    }
 
     /* Obscurcissement */
     .ftv-magneto-main {
@@ -39,19 +41,11 @@ function createStyle(options) {
       display: ${options.showTimeDisplay ? 'flex' : 'none'} !important;
     }
 
-    /* Contrôle du volume */
-    [name="btn-volume"],
-    [role="dialog"][aria-label*="volume"] {
-      display: ${options.showVolumeControl ? 'flex' : 'none'} !important;
-    }
-
-    /* Boutons supplémentaires */
+    /* Autres boutons spécifiques (sauf volume) */
     [name="btn-eco"],
     [name="btn-settings"],
     [name="btn-tracks"],
-    [name="btn-fullscreen"],
-    [name="btn-rewind"],
-    [name="btn-forward"] {
+    [name="btn-fullscreen"] {
       display: ${options.showButtons ? 'flex' : 'none'} !important;
     }
   `;
