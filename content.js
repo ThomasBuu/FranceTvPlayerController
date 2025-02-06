@@ -8,6 +8,11 @@ function createStyle(options) {
     [name="slider-volume"] {
       display: ${options.showVolumeControl ? 'flex' : 'none'} !important;
     }
+
+    /* Bouton play/pause - indépendant */
+    [name="btn-play"] {
+      display: ${options.showPlayButton ? 'flex' : 'none'} !important;
+    }
     
     /* Masquer les conteneurs des boutons forward/rewind */
     div[style*="position: relative"][style*="width: 36px"][style*="height: 36px"]:has([name="btn-forward"]),
@@ -15,9 +20,18 @@ function createStyle(options) {
       display: ${options.showButtons ? 'flex' : 'none'} !important;
     }
 
-    /* Masquer les boutons (sauf volume) */
-    .ftv-magneto--btn:not([name="btn-volume"]) {
+    /* Masquer les boutons (sauf volume, play/pause et boutons de pause publicitaire) */
+    .ftv-magneto--btn:not([name="btn-volume"]):not([name="btn-play"]):not([name="btn-close-adpause"]):not([name="btn-fullscreen-adpause"]):not(.ftv-magneto--labeled-button),
+    div[role="button"][name^="btn-"]:not([name="btn-volume"]):not([name="btn-play"]):not([name="btn-close-adpause"]):not([name="btn-fullscreen-adpause"]) {
       display: ${options.showButtons ? 'flex' : 'none'} !important;
+    }
+
+    /* Toujours afficher les boutons de pause publicitaire */
+    [name="btn-close-adpause"],
+    [name="btn-fullscreen-adpause"],
+    .pauseroll-retake,
+    .ftv-magneto--labeled-button {
+      display: flex !important;
     }
 
     /* Obscurcissement */
@@ -26,14 +40,21 @@ function createStyle(options) {
       background-image: none !important;
     }
 
-    /* Barre de progression */
+    /* Container de la barre de progression */
     #ftv-magneto--ui-timeline {
-      display: ${options.showProgressBar ? 'flex' : 'none'} !important;
+      display: ${options.showProgressBar || options.showTimeDisplay ? 'flex' : 'none'} !important;
     }
 
-    /* Bouton lecture/pause */
-    [name="btn-play"] {
-      display: ${options.showPlayButton ? 'flex' : 'none'} !important;
+    /* Barre de progression (le slider lui-même) */
+    #ftv-magneto--ui-timeline [role="slider"] {
+      display: ${options.showProgressBar ? 'block' : 'none'} !important;
+    }
+
+    /* Conteneur du slider (pour cacher la barre grise) */
+    #ftv-magneto--ui-timeline > div[style*="flex-grow"] {
+      display: ${options.showProgressBar ? 'block' : 'none'} !important;
+      margin-left: ${options.showTimeDisplay ? '17px' : '0'} !important;
+      margin-right: ${options.showTimeDisplay ? '17px' : '0'} !important;
     }
 
     /* Affichage du temps */
@@ -41,11 +62,11 @@ function createStyle(options) {
       display: ${options.showTimeDisplay ? 'flex' : 'none'} !important;
     }
 
-    /* Autres boutons spécifiques (sauf volume) */
+    /* Autres boutons spécifiques */
     [name="btn-eco"],
     [name="btn-settings"],
     [name="btn-tracks"],
-    [name="btn-fullscreen"] {
+    [name="btn-fullscreen"]:not([name="btn-fullscreen-adpause"]) {
       display: ${options.showButtons ? 'flex' : 'none'} !important;
     }
   `;
