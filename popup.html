@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      width: 300px;
+      padding: 10px;
+      font-family: Arial, sans-serif;
+    }
+    .option {
+      margin: 10px 0;
+      display: flex;
+      align-items: center;
+    }
+    .option label {
+      margin-left: 8px;
+      user-select: none;
+      cursor: pointer;
+    }
+    .option input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+    }
+    .separator {
+      height: 1px;
+      background: #ddd;
+      margin: 15px 0;
+    }
+  </style>
+</head>
+<body>
+  <h3>Options du lecteur vidéo</h3>
+  
+  <div class="option">
+    <input type="checkbox" id="disableDarkening">
+    <label for="disableDarkening">Désactiver l'obscurcissement</label>
+  </div>
+
+  <div class="separator"></div>
+
+  <div class="option">
+    <input type="checkbox" id="showProgressBar">
+    <label for="showProgressBar">Barre de progression</label>
+  </div>
+
+  <div class="option">
+    <input type="checkbox" id="showPlayButton">
+    <label for="showPlayButton">Bouton lecture/pause</label>
+  </div>
+
+  <div class="option">
+    <input type="checkbox" id="showTimeDisplay">
+    <label for="showTimeDisplay">Affichage du temps</label>
+  </div>
+
+  <div class="option">
+    <input type="checkbox" id="showVolumeControl">
+    <label for="showVolumeControl">Contrôle du volume</label>
+  </div>
+
+  <div class="separator"></div>
+
+  <div class="option">
+    <input type="checkbox" id="showButtons">
+    <label for="showButtons">Afficher les boutons (éco, paramètres, etc.)</label>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

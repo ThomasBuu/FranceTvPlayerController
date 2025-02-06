@@ -1,0 +1,18 @@
+.ftv-magneto-main {
+    background-image: none !important;
+    background-color: transparent !important;
+  }
+  
+  /* Masquer les contrôles du lecteur */
+  .magneto--section-top, 
+  .ftv-magneto--btn,
+  #ftv-magneto--ui-timeline,
+  .ftv-magneto-time {
+    display: none !important;
+  }
+  
+  /* Empêcher le changement d'opacité au survol */
+  .ftv-magneto-main {
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
