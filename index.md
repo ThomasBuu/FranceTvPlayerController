@@ -1,5 +1,5 @@
 📜 Politique de confidentialité — FranceTV Video Player Controller
-Dernière mise à jour : [Date du jour]
+Dernière mise à jour : 6 février 2025
 
 Bienvenue sur la page de politique de confidentialité de l'extension FranceTV Video Player Controller.
 Nous accordons une grande importance à la protection de votre vie privée. Cette politique explique de manière claire et transparente quelles données sont collectées et comment elles sont utilisées.
